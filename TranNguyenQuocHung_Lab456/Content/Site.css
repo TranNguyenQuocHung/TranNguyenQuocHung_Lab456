@@ -19,7 +19,7 @@
     .navbar-inverse .navbar-nav > li > a{
         color:white;
     }
-    ..navbar-inverse .navbar-brand{
+    .navbar-inverse .navbar-brand{
         color:white;
     }
 /* Set width on the form input elements since they're 100% wide by default */
