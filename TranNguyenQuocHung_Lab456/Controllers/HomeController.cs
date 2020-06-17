@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using TranNguyenQuocHung_Lab456.Models;
 using System.Data.Entity;
 using System.Web.Http;
+using TranNguyenQuocHung_Lab456.ViewModels;
 
 namespace TranNguyenQuocHung_Lab456.Controllers
 {
@@ -20,7 +21,12 @@ namespace TranNguyenQuocHung_Lab456.Controllers
                 .Include(c => c.Lecturer)
                 .Include(c => c.Category)
                 .Where(c => c.DateTime > DateTime.Now);
-            return View(upcommingCourses);
+            var viewModel = new CoursesViewModel
+            {
+                UpComingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
         }
 
         public ActionResult About()
